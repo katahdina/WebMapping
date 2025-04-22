@@ -9,80 +9,80 @@
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         /*  stlye for paragraph tags */
-   p {
-     color: white;
-   }
+       p {
+            color: white;
+            }
 
    /* style for heading level 4 tags */
-   h4 {
-     color: white;
-     margin-left: 10px;
-   }
+       h4 {
+            color: white;
+            margin-left: 10px;
+            }
 
    /*  style for items with the class "LegendContainer" */
-   .LegendContainer {
-     position: absolute;
-     bottom: 20px;
-     left: 20px;
-     z-index: 2;
-     width: 300px;
-     height: 40px;
-     background: rgba(80, 80, 80, .75);
-     transition: width 2s, height 2s; /* this is the time it takes for the container to transition */
-     border-radius: 7px;
-   }
+       .LegendContainer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 2;
+            width: 300px;
+            height: 40px;
+            background: rgba(80, 80, 80, .75);
+            transition: width 2s, height 2s; /* this is the time it takes for the container to transition */
+            border-radius: 7px;
+           }
 
    /*  style for items with the class "descriptionPanel" */
-   .descriptionPanel {
-     position: absolute;
-     bottom: 65px;
-     left: 20px;
-     z-index: 2;
-     width: 300px;
-     height: 40px;
-     background: rgba(80, 80, 80, .75);
-     transition: width 2s, height 2s;
-     overflow: hidden;
-     border-radius: 7px;
-   }
+       .descriptionPanel {
+            position: absolute;
+            bottom: 65px;
+            left: 20px;
+            z-index: 2;
+            width: 300px;
+            height: 40px;
+            background: rgba(80, 80, 80, .75);
+            transition: width 2s, height 2s;
+            overflow: hidden;
+            border-radius: 7px;
+           }
 
    /*  style for items with the class "descriptionPanel" when active */
-   .LegendContainer:active {
-     width: 240px;
-     height: 250px;
-   }
+       .LegendContainer:active {
+            width: 240px;
+            height: 250px;
+       }
 
    /* style for items with the class "legendItem" */
-   .legendItem {
-       margin: 0px;
-       padding-left: 10px;
-       display:inline-block;
-       margin:auto;
-       transform: translate(50%, 50%);
-   }
+       .legendItem {
+            margin: 0px;
+            padding-left: 10px;
+            display:inline-block;
+            margin:auto;
+            transform: translate(50%, 50%);
+           }
         
 
    /* style for items with the class "layerDescription" */
-   .layerDescription {
-     color: white;
-     padding-left: 10px;
-   }
-
-        
-   .renter {
-         color:#22ec22;
-   }
-   .owner{
-         color:#7504f6;
-   }
+       .layerDescription {
+            color: white;
+            padding-left: 10px;
+       }
+    
+            
+       .renter {
+            color:#22ec22;
+       }
+       .owner{
+             color:#7504f6;
+       }
 
    /* style for items with the class "chevron" */
-   .chevron {
-     position: relative;
-     margin-left: 45%;
-     font-size: x-large;
-     color: white;
-   }
+       .chevron {
+             position: relative;
+             margin-left: 45%;
+             font-size: x-large;
+             color: white;
+       }
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
         
@@ -90,29 +90,29 @@
 </head>
 <body>
 
-  <div id='map'></div>
-  
-  <!-- the DIV below is for the map description panel -->
-  <div class="descriptionPanel" id="descriptionPanel" style="height: 250px;"> 
-    <span onClick=panelSelect() id="glyph" class="chevron glyphicon glyphicon-chevron-down"></span>
-    <hr/>
-    <h4>WHAT AM I LOOKING AT?</h4>
-    <p style="margin-left: 10px; margin-right: 10px;">
-      This is a map showing every single person in the Portland Area as a dot. Data is taken from the 2017 US Census, and is accurate at the level of a block; however, within each block location is randomized. Points are colored based on the number of home owners versus renters on a block.
-    </p>
-  </div>
-
-<!-- This is for the Map Legend -->
-  <div class="LegendContainer">
-    <div class="legendItem">
-        <span class="owner">&#11044;</span>
-        <span class="layerDescription">Owners</span>
-    </div>
-    <div class="legendItem">
-        <span class="renter">&#11044;</span>
-        <span class="layerDescription">Renters</span>
-    </div>
-  </div>
+      <div id='map'></div>
+      
+      <!-- the DIV below is for the map description panel -->
+      <div class="descriptionPanel" id="descriptionPanel" style="height: 250px;"> 
+        <span onClick=panelSelect() id="glyph" class="chevron glyphicon glyphicon-chevron-down"></span>
+        <hr/>
+        <h4>WHAT AM I LOOKING AT?</h4>
+        <p style="margin-left: 10px; margin-right: 10px;">
+          This is a map showing every single person in the Portland Area as a dot. Data is taken from the 2017 US Census, and is accurate at the level of a block; however, within each block location is randomized. Points are colored based on the number of home owners versus renters on a block.
+        </p>
+      </div>
+    
+    <!-- This is for the Map Legend -->
+      <div class="LegendContainer">
+        <div class="legendItem">
+            <span class="owner">&#11044;</span>
+            <span class="layerDescription">Owners</span>
+        </div>
+        <div class="legendItem">
+            <span class="renter">&#11044;</span>
+            <span class="layerDescription">Renters</span>
+        </div>
+      </div>
   <script>
     
     mapboxgl.accessToken = 'pk.eyJ1Ijoia2F0YWhkaW5hIiwiYSI6ImNtOTF1ZHV3ZDA0eGsyanB1NzQ1emd6ZzEifQ.iqoAdHf4Ofxbz7WtYl-8hA'; 
